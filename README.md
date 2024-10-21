@@ -1,5 +1,6 @@
 GraphIt Domain Specific Language and Compiler [![Build Status](https://travis-ci.org/GraphIt-DSL/graphit.svg?branch=master)](https://travis-ci.org/GraphIt-DSL/graphit)
 ==========
+
 GraphIt is a high-performance Graph DSL. [Our website](http://graphit-lang.org) has more detailed tutorials and documentations for the language.
 
 Dependencies
@@ -71,6 +72,7 @@ Note when running `test.py`, some error message may be printed during the run th
 
 Compile GraphIt Programs
 ===========
+
 GraphIt compiler currently generates a C++ output file from the .gt input GraphIt programs.
 To compile an input GraphIt file with schedules in the same file (assuming the build directory is in the root project directory).
 
@@ -78,6 +80,7 @@ To compile an input GraphIt file with schedules in the same file (assuming the b
     cd build/bin
     python graphitc.py -f ../../test/input_with_schedules/pagerank_benchmark.gt -o test.cpp
 ```
+
 To compile an input algorithm file and another separate schedule file (some of the test files have hardcoded paths to test inputs, be sure to modify that or change the directory you run the compiled files)
 
 The example below compiles the algorithm file (../../test/input/pagerank.gt), with a separate schedule file (../../test/input_with_schedules/pagerank_pull_parallel.gt)
@@ -89,6 +92,7 @@ The example below compiles the algorithm file (../../test/input/pagerank.gt), wi
 
 Compile and Run Generated C++ Programs
 ===========
+
 To compile a serial version, you can use reguar g++ with support of c++14 standard to compile the generated C++ file (assuming it is named test.cpp).
 
 ```
@@ -174,10 +178,12 @@ GraphIt reuses [GAPBS input formats](https://github.com/sbeamer/gapbs). Specific
 
 Autotuning GraphIt Schedules
 ===========
+
 Please refer to **README.md** in **graphit/autotune** for more details.
 The autotuner is still somewhat experimental. Please read the [instructions](https://github.com/GraphIt-DSL/graphit/blob/master/autotune/README.md) carefully before trying it out.
 
 Publications
 ===========
+
 * GraphIt-A High-Performance DSL for Graph Analytics [OOPSLA 2018](https://dl.acm.org/doi/10.1145/3276491)
 * Optimizing ordered graph algorithms with GraphIt [CGO 2020](https://dl.acm.org/doi/10.1145/3368826.3377909)
