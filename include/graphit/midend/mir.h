@@ -38,6 +38,14 @@ namespace graphit {
             typedef std::shared_ptr<MIRNode> Ptr;
 
             MIRNode() {}
+			// fix warning C4265: 'graphit::mir::BoolLiteral': class has virtual functions, but its non-trivial destructor is not virtual; instances of this class may not be destructed correctly
+			// ... and a whole lot more like that.
+			// This is the first base class that has virtual functions, so this one gets the virtual destructor as well. As this base class is abstract, due to pure virtual member functions,
+			// its destructor will be declared `protected` as one of two ways to ensure no-one can instantiate this base class as-is. (The other way is using a pure virtual destructor + inline
+			// implementation.)
+		protected:
+			virtual ~MIRNode() = default;
+		public:
 
             /** We use the visitor pattern to traverse MIR nodes throughout the
             * compiler, so we have a virtual accept method which accepts
