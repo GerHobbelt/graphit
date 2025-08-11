@@ -23,6 +23,11 @@ namespace graphit {
             ApplyExprVisitor(MIRContext *mir_context) :
                     mir_context_(mir_context){}
 
+			// fix warning C4266: 'void graphit::mir::MIRVisitor::visit(std::shared_ptr<graphit::mir::PrintStmt>)': no override available for virtual member function from base 'graphit::mir::MIRVisitor'; function is hidden
+			// fix warning C4266: 'void graphit::mir::MIRVisitor::visit(std::shared_ptr<graphit::mir::BreakStmt>)': no override available for virtual member function from base 'graphit::mir::MIRVisitor'; function is hidden
+			// ...
+			using mir::MIRVisitor::visit;
+
             virtual void visit(mir::PullEdgeSetApplyExpr::Ptr apply_expr);
 
             virtual void visit(mir::PushEdgeSetApplyExpr::Ptr apply_expr);
